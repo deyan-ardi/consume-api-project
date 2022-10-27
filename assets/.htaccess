@@ -1,0 +1,1 @@
+RewriteCond $1 !\.(css|js|gif|jpe?g|png) [NC]
