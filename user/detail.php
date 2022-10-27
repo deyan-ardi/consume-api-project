@@ -32,7 +32,7 @@ session_start();
             </div>
             <div class="card-body">
                 <div class="row justify-content-between mb-3">
-                    <div class="col-12"> <h6 class="color-1 mb-0 change-color">Receipt</h6></div>
+                    <div class="col-12"> <h5 class="color-1 mb-0 change-color">Receipt</h5></div>
                     <div class="col-12  ">
                         <?php
                         $id = $_GET['id'];
@@ -42,6 +42,8 @@ session_start();
                         echo '<div class="col-12"> <small>Delivery Address : '.$data->deliveryAddress.'</small> </div>';
                         echo '<div class="col-12"> <small>Delivered Date : '.$date->format($data->deliveredDate).'</small> </div>';
                         ?>
+                    <div class="col-12 pt-3"> <h6 class="color-1 mb-0 change-color">Product</h6></div>
+                
                     </div>
                 </div>
 

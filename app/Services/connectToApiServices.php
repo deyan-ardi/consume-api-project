@@ -1,9 +1,9 @@
 <?php
 namespace app\services;
-require_once '../app/Config/config.php';
 
 class connectToApiServices
 {
+
     public function api()
     {
         $curl_handle = curl_init();
