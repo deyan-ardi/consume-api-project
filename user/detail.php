@@ -50,7 +50,7 @@ session_start();
                             $deliveredDate = "No Internet";
                             $deliveryAddress = "No Internet";
                             $products = 0;
-                            $date = is_null($data->deliveredDate);
+                            $date = !is_null($data);
                         }
                         echo '<div class="col-12"> <small>Customer Name : '.$cusName.'</small> </div>';
                         echo '<div class="col-md-12 "> <small>Order Date : '.$orderDate.'</small> </div>';
