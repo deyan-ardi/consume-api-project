@@ -39,6 +39,7 @@ session_start();
                     </thead>
                     <tbody>
                         <?php
+                        if ($api->api() !== null) {
                         foreach ($api->api() as $data) {
                             echo '<tr class="bg-blue">';
                             echo '<td class="pt-2">';
@@ -53,7 +54,7 @@ session_start();
                             echo '<td class="pt-2">'.$data->deliveryAddress;
                             echo '</td>';
                             if (is_null($data->deliveredDate)) {
-                                echo '<td class="pt-2">Pending <i class="fa fa-spinner" aria-hidden="true"></i>';
+                                echo '<td class="pt-2">----</i>';
                                 echo '</td>';
                             } else {
                                 echo '<td class="pt-2">'.$date->format($data->deliveredDate);
@@ -65,6 +66,28 @@ session_start();
                             echo '<td></td>';
                             echo '</tr>';
                         }
+                    } else {
+                        echo '<tr class="">';
+                        echo '<td class="pt-2">';
+                        echo 'No Internet';
+                        echo '</td>';
+                        echo '<td class="pt-2">No Internet';
+                        echo '</td>';
+                        echo '<td class="pt-2">No Internet';
+                        echo '</td>';
+                        echo '<td class="pt-2">No Internet';
+                        echo '</td>';
+                        echo '<td class="pt-2">No Internet';
+                        echo '</td>'; 
+                        echo '<td class="pt-2">No Internet';
+                        echo '</td>';                  
+                        echo '</tr>';
+                        echo '<tr id="spacing-row">';
+                        echo '<td></td>';
+                        echo '</tr>';
+                    }
+
+
                         ?>
                     </tbody>
                 </table>

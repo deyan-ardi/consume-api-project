@@ -35,7 +35,7 @@ class Validator
                 header("Location: create.php");
             }
 
-            elseif ($_POST['price'] < 1 || $_POST['price'] > 100) {
+            elseif ($_POST['price'] <= 1 || $_POST['price'] >= 100) {
                 $_SESSION['price'] = '<label class="label--desc text-danger">price must be between 1 and 100</label>';
                 header("Location: create.php");
             }

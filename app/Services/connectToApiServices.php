@@ -22,7 +22,6 @@ class connectToApiServices
         curl_close($curl_handle);
         $response_data = json_decode($curl_data);
         $order_data = $response_data;
-        $order_data = array_slice($order_data, 0, 4);
 
         return $order_data;
     }
