@@ -53,7 +53,7 @@ session_start();
                             echo '<td class="pt-2">'.$data->deliveryAddress;
                             echo '</td>';
                             if (is_null($data->deliveredDate)) {
-                                echo '<td class="pt-2"> <i class="fa fa-spinner" aria-hidden="true"></i>';
+                                echo '<td class="pt-2">Pending <i class="fa fa-spinner" aria-hidden="true"></i>';
                                 echo '</td>';
                             } else {
                                 echo '<td class="pt-2">'.$date->format($data->deliveredDate);

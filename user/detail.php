@@ -38,11 +38,9 @@ session_start();
                         $id = $_GET['id'];
                         $data = $api->detail($id);
                         echo '<div class="col-12"> <small>Customer Name : '.$data->customerName.'</small> </div>';
-                        echo '<div class="col-md-12 "> <small>Order Date : '.$data->orderDate.'</small> </div>';
+                        echo '<div class="col-md-12 "> <small>Order Date : '.$date->format($data->orderDate).'</small> </div>';
                         echo '<div class="col-12"> <small>Delivery Address : '.$data->deliveryAddress.'</small> </div>';
-                        echo '<div class="col-12"> <small>Delivered Date : '.$data->deliveredDate.'</small> </div>';
-
-
+                        echo '<div class="col-12"> <small>Delivered Date : '.$date->format($data->deliveredDate).'</small> </div>';
                         ?>
                     </div>
                 </div>
