@@ -23,12 +23,13 @@ session_start();
 <body>
     <?php require_once 'components/_navbar.php' ?>
     <div class="container">
-        <div class="container rounded mt-5 bg-white p-md-5">
+        <div class="pt-4">
             <div class="h2 font-weight-bold">Order List</div>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th scope="col">Order ID</th>
                             <th scope="col">Order Date</th>
                             <th scope="col">Customer Name</th>
@@ -40,16 +41,25 @@ session_start();
                         <?php
                         foreach ($api->api() as $data) {
                             echo '<tr class="bg-blue">';
-                            echo '<td class="pt-3">'.$data->orderID;
+                            echo '<td class="pt-2">';
+                            echo '<a href="'.$config['base_url'].'/user/detail.php/?id='.$data->orderID.'" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>';
                             echo '</td>';
-                            echo '<td class="pt-3">'.$date->format($data->orderDate);
+                            echo '<td class="pt-2">'.$data->orderID;
                             echo '</td>';
-                            echo '<td class="pt-3">'.$data->customerName;
+                            echo '<td class="pt-2">'.$date->format($data->orderDate);
                             echo '</td>';
-                            echo '<td class="pt-3">'.$data->deliveryAddress;
+                            echo '<td class="pt-2">'.$data->customerName;
                             echo '</td>';
-                            echo '<td class="pt-3">'.$date->format($data->deliveredDate);
+                            echo '<td class="pt-2">'.$data->deliveryAddress;
                             echo '</td>';
+                            if (is_null($data->deliveredDate)) {
+                                echo '<td class="pt-2"> <i class="fa fa-spinner" aria-hidden="true"></i>';
+                                echo '</td>';
+                            } else {
+                                echo '<td class="pt-2">'.$date->format($data->deliveredDate);
+                                echo '</td>';
+                            }
+                            
                             echo '</tr>';
                             echo '<tr id="spacing-row">';
                             echo '<td></td>';
