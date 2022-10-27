@@ -40,7 +40,12 @@ session_start();
                         echo '<div class="col-12"> <small>Customer Name : '.$data->customerName.'</small> </div>';
                         echo '<div class="col-md-12 "> <small>Order Date : '.$date->format($data->orderDate).'</small> </div>';
                         echo '<div class="col-12"> <small>Delivery Address : '.$data->deliveryAddress.'</small> </div>';
-                        echo '<div class="col-12"> <small>Delivered Date : '.$date->format($data->deliveredDate).'</small> </div>';
+                        if (!is_null($data->deliveredDate)) {
+                            echo '<div class="col-12"> <small>Delivered Date : '.$date->format($data->deliveredDate).'</small> </div>';
+                        } else {
+                            echo '<div class="col-12"> <small>Delivered Date : - </small> </div>';
+                        }
+                        
                         ?>
                     <div class="col-12 pt-3"> <h6 class="color-1 mb-0 change-color">Product</h6></div>
                 

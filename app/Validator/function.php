@@ -40,14 +40,17 @@ class Validator
                 header("Location: create.php");
             }
 
-            elseif (!is_numeric($_POST['price']) || !is_numeric($_POST['id'])) {
-                $_SESSION['price'] = '<label class="label--desc text-danger">Price must be numeric</label>';
+            elseif (!is_numeric($_POST['id'])) {
                 $_SESSION['id'] = '<label class="label--desc text-danger">ID must be numeric</label>';
                 header("Location: create.php");
             }
 
+            elseif (!is_numeric($_POST['price'])) {
+                $_SESSION['price'] = '<label class="label--desc text-danger">Price must be numeric</label>';
+                header("Location: create.php");
+            }
+
             else {
-                $_SESSION['message'] = '<div class="alert alert-success">Successfully input data into data record</div>';
                 header("Location: index.php");
 
             }

@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="name">Product Name</div>
                             <div class="value">
                             <div class="input-group-desc">
-                                <input class="input--style-5" type="text" name="name">
+                                <input class="input--style-5 text-capitalize" type="text" name="name">
                                 <?php
                                 if (isset($_SESSION['name'])) {
                                     echo $_SESSION['name'];
@@ -64,9 +64,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-row">
                             <div class="name">Price</div>
                             <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="price">
-                                </div>
+                            <div class="input-group-desc">
+                                <input class="input--style-5 text-capitalize" type="text" name="price">
+                                <?php
+                                if (isset($_SESSION['price'])) {
+                                    echo $_SESSION['price'];
+                                    unset($_SESSION['price']);
+                                }
+                                ?>
+                            </div>
                             </div>
                         </div>
                         <div>
