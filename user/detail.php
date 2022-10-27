@@ -42,6 +42,7 @@ session_start();
                             $deliveredDate = $date->format($data->deliveredDate);
                             $deliveryAddress = $data->deliveryAddress;
                             $products = count($data->products);
+                            $date = !is_null($data->deliveredDate);
                         }
                         else {
                             $cusName = 'No Internet';
@@ -49,11 +50,12 @@ session_start();
                             $deliveredDate = "No Internet";
                             $deliveryAddress = "No Internet";
                             $products = 0;
+                            $date = is_null($data->deliveredDate);
                         }
                         echo '<div class="col-12"> <small>Customer Name : '.$cusName.'</small> </div>';
                         echo '<div class="col-md-12 "> <small>Order Date : '.$orderDate.'</small> </div>';
                         echo '<div class="col-12"> <small>Delivery Address : '.$deliveryAddress.'</small> </div>';
-                        if (!is_null($deliveredDate)) {
+                        if ($date) {
                             echo '<div class="col-12"> <small>Delivered Date : '.$deliveredDate.'</small> </div>';
                         } else {
                             echo '<div class="col-12"> <small>Delivered Date : - </small> </div>';
@@ -99,10 +101,10 @@ session_start();
                     echo '<div class="row">';
                     echo '<div class="col-md-3"> <small> Status <span><i class=" ml-2 fa fa-refresh"  aria-hidden="true"></i></span></small> </div>';
                     echo '<div class="col mt-auto">';
-                    if (is_null($deliveredDate)) {
-                        echo '<div class="my-auto"><small  class="text-right mr-sm-2">Pending</small><span> <i  class="fa fa-spinner"></i></span> </div>';
-                    } else {
+                    if ($date) {
                         echo '<div class="my-auto"><small  class="text-right mr-sm-2">Delivered</small><span> <i  class="fa fa-check"></i></span> </div>';
+                    } else {
+                        echo '<div class="my-auto"><small  class="text-right mr-sm-2">Pending</small><span> <i  class="fa fa-spinner"></i></span> </div>';
                     }
                     
                     echo '</div>';
