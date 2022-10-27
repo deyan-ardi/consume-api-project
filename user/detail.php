@@ -22,16 +22,15 @@ session_start();
 
 <body>
     <?php require_once 'components/_navbar.php' ?>
-    <div class="container">
     <div class="container-fluid my-5  d-flex  justify-content-center">
         <div class="card card-1">
             <div class="card-header bg-white">
                 <div class="media flex-sm-row flex-column-reverse justify-content-between  ">
-                    <div class="col my-auto"> <h4 class="mb-0">Order Detail<span class="change-color"> #<?php echo $_GET['id']; ?></span> !</h4> </div>
+                    <div class="col my-auto"> <h4 class="mb-0">Order Detail<span class="change-color"> #<?php echo $_GET['id'] ?></span> !</h4> </div>
                 </div>
             </div>
             <div class="card-body">
-                <div class="row justify-content-between mb-3">
+            <div class="row justify-content-between mb-3">
                     <div class="col-12"> <h5 class="color-1 mb-0 change-color">Receipt</h5></div>
                     <div class="col-12  ">
                         <?php
@@ -51,9 +50,11 @@ session_start();
                 
                     </div>
                 </div>
-
                 <?php
+                $total = 0;
                 for ($i=0; $i<count($data->products) ; $i++) { 
+                    $price = preg_replace("/[^0-9\.]/", "", $data->products[$i]->price);
+                    $total += $price * $data->products[$i]->quantity;
                     echo '<div class="row pb-4">';
                     echo '<div class="col">';
                     echo '<div class="card card-2">';
@@ -85,10 +86,16 @@ session_start();
                     echo '</div>';
                 }
                 ?>
-
+            </div>
+            <div class="card-footer">
+                <div class="jumbotron-fluid">
+                    <div class="row justify-content-between ">
+                        <div class="col-auto my-auto "><h2 class="mb-0 font-weight-bold">TOTAL PAYMENT</h2></div>
+                        <div class="col-auto my-auto ml-auto"><h1 class="display-3 ">$<?php echo (float)$total ?></h1></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <?php require_once 'components/_script.php' ?>
 </body>

@@ -75,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             </div>
                         </div>
-                        <div>
-                            <button class="btn btn-primary" type="submit" name="save">ADD</button>
+                        <div class="me-auto">
+                            <button class="btn btn-primary " type="submit" name="save">ADD</button>
                         </div>
                     </form>
                 </div>

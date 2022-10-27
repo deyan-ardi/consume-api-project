@@ -100,6 +100,7 @@ thead {
     }
 }
 
+
 .container-fluid {
     margin-top: 200px ;
 }
@@ -128,7 +129,7 @@ hr {
 }
 
 .change-color {
-    color: #3e64ff!important;
+    color:#3e64ff !important;
 }
 
 .card-2 {
@@ -136,18 +137,49 @@ hr {
 
 }
 
+.fa-circle.active {
+    font-size: 8px;
+    color:#3e64ff;
+}
+
+.fa-circle {
+    font-size: 8px;
+    color: #aaa;
+}
+
 .rounded {
     border-radius: 2.25rem !important;
 }
 
 
+.progress-bar {
+    background-color:#3e64ff !important;
+}
+
+
+.progress {
+    height: 5px !important;
+    margin-bottom: 0;
+}
+
 .invoice {
     position: relative;
     top: -70px;
 }
+
+.Glasses {
+    position: relative;
+    top: -12px !important;
+}
+
+.card-footer {
+    background-color:#3e64ff;
+    color: #fff;
+}
+
 h2 {
-    color: #3e64ff;
-    letter-spacing: 2px !important;
+  color: rgb(222, 215, 223);
+  letter-spacing: 2px !important;
 }
 
 .display-3 {
@@ -169,7 +201,7 @@ h2 {
 @media (max-width: 700px) {
 
     h2 {
-        color: #3e64ff;
+        color: rgb(78, 0, 92);
         font-size: 17px;
     }
 
@@ -179,16 +211,15 @@ h2 {
     }
 }
 
+.card-footer small {
+    letter-spacing: 7px !important;
+    font-size: 12px;
+}
+
 .border-line {
     border-right: 1px solid rgb(226, 206, 226)
 }
 
-
-
-
-/* ==========================================================================
-   #GRID
-   ========================================================================== */
 .row {
   display: -webkit-box;
   display: -webkit-flex;
