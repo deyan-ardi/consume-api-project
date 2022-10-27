@@ -4,13 +4,6 @@ class Validator
 {
     public $data;
 
-    public function __construct()
-    {
-        $this->p_name = @htmlentities(strtolower($_POST['name']));
-        $this->price = @htmlentities(strtolower($_POST['price']));
-        $this->id = @htmlentities(strtolower($_POST['id']));
-    }
-
     function is_decimal( $val )
     {
         return is_numeric( $val ) && floor( $val ) != $val;
@@ -54,8 +47,8 @@ class Validator
             }
 
             else {
-                $_SESSION['message'] = '<div class="alert alert-success">Success, successfully input data into data record</div>';
-                header("Location: create.php");
+                $_SESSION['message'] = '<div class="alert alert-success">Successfully input data into data record</div>';
+                header("Location: index.php");
 
             }
         }
