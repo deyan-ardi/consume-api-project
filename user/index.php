@@ -40,52 +40,52 @@ session_start();
                     <tbody>
                         <?php
                         if ($api->api() !== null) {
-                        foreach ($api->api() as $data) {
-                            echo '<tr class="bg-blue">';
-                            echo '<td class="pt-2">';
-                            echo '<a href="'.$config['base_url'].'/user/detail.php/?id='.$data->orderID.'" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>';
-                            echo '</td>';
-                            echo '<td class="pt-2">'.$data->orderID;
-                            echo '</td>';
-                            echo '<td class="pt-2">'.$date->format($data->orderDate);
-                            echo '</td>';
-                            echo '<td class="pt-2">'.$data->customerName;
-                            echo '</td>';
-                            echo '<td class="pt-2">'.$data->deliveryAddress;
-                            echo '</td>';
-                            if (is_null($data->deliveredDate)) {
-                                echo '<td class="pt-2">----</i>';
+                            foreach ($api->api() as $data) {
+                                echo '<tr class="bg-blue">';
+                                echo '<td class="pt-2">';
+                                echo '<a href="' . $config['base_url'] . '/user/detail.php/?id=' . $data->orderID . '" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>';
                                 echo '</td>';
-                            } else {
-                                echo '<td class="pt-2">'.$date->format($data->deliveredDate);
+                                echo '<td class="pt-2">' . $data->orderID;
                                 echo '</td>';
+                                echo '<td class="pt-2">' . $date->format($data->orderDate);
+                                echo '</td>';
+                                echo '<td class="pt-2">' . $data->customerName;
+                                echo '</td>';
+                                echo '<td class="pt-2">' . $data->deliveryAddress;
+                                echo '</td>';
+                                if (is_null($data->deliveredDate)) {
+                                    echo '<td class="pt-2">----</i>';
+                                    echo '</td>';
+                                } else {
+                                    echo '<td class="pt-2">' . $date->format($data->deliveredDate);
+                                    echo '</td>';
+                                }
+
+                                echo '</tr>';
+                                echo '<tr id="spacing-row">';
+                                echo '<td></td>';
+                                echo '</tr>';
                             }
-                            
+                        } else {
+                            echo '<tr class="">';
+                            echo '<td class="pt-2">';
+                            echo 'No Internet';
+                            echo '</td>';
+                            echo '<td class="pt-2">No Internet';
+                            echo '</td>';
+                            echo '<td class="pt-2">No Internet';
+                            echo '</td>';
+                            echo '<td class="pt-2">No Internet';
+                            echo '</td>';
+                            echo '<td class="pt-2">No Internet';
+                            echo '</td>';
+                            echo '<td class="pt-2">No Internet';
+                            echo '</td>';
                             echo '</tr>';
                             echo '<tr id="spacing-row">';
                             echo '<td></td>';
                             echo '</tr>';
                         }
-                    } else {
-                        echo '<tr class="">';
-                        echo '<td class="pt-2">';
-                        echo 'No Internet';
-                        echo '</td>';
-                        echo '<td class="pt-2">No Internet';
-                        echo '</td>';
-                        echo '<td class="pt-2">No Internet';
-                        echo '</td>';
-                        echo '<td class="pt-2">No Internet';
-                        echo '</td>';
-                        echo '<td class="pt-2">No Internet';
-                        echo '</td>'; 
-                        echo '<td class="pt-2">No Internet';
-                        echo '</td>';                  
-                        echo '</tr>';
-                        echo '<tr id="spacing-row">';
-                        echo '<td></td>';
-                        echo '</tr>';
-                    }
 
 
                         ?>
