@@ -1,15 +1,20 @@
 <?php
 namespace app\services;
+require_once '../app/Config/config.php';
 
 class connectToApiServices
 {
+    public $base;
+    public function __construct()
+    {
+        $this->base= "https://titan.csit.rmit.edu.au/~e103884/wp/.services/";
+    }
 
     public function api()
     {
         $curl_handle = curl_init();
-
         // $url = $config['api_url'];
-        $url = "https://titan.csit.rmit.edu.au/~e103884/wp/.services/.orders/";
+        $url = $this->base.".orders/";
 
         curl_setopt($curl_handle, CURLOPT_URL, $url);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
@@ -27,7 +32,7 @@ class connectToApiServices
         $curl_handle = curl_init();
 
         // $url = $config['api_url'];
-        $url = "https://titan.csit.rmit.edu.au/~e103884/wp/.services/.orders/?id=".$id;
+        $url = $this->base.".orders/?id=".$id;
 
         curl_setopt($curl_handle, CURLOPT_URL, $url);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);

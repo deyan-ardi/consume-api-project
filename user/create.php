@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Price</div>
+                            <div class="name">Price ($)</div>
                             <div class="value">
                             <div class="input-group-desc">
                                 <input class="input--style-5 text-capitalize" type="text" name="price">
